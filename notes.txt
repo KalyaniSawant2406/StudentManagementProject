@@ -1,0 +1,69 @@
+STUDENT RECORD MANAGER - PROJECT NOTES
+
+COMPLEXITY REPORT
+(Worst case, where n is the number of student records)
+
+1. Add at End
+Data Structure: Singly Linked List
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+Explanation: The tail pointer directly identifies the last node, allowing a new node to be added without traversing the list.
+
+2. Search by Roll Number
+Data Structure: Singly Linked List
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+Explanation: In the worst case, every node must be checked to find the required student.
+
+3. Remove by Roll Number
+Data Structure: Singly Linked List
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+Explanation: The list must be traversed to find the required student and its predecessor. Updating the links and deleting the node take O(1) time after the node is found.
+
+4. Display All Students
+Data Structure: Singly Linked List
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+Explanation: Every student record is visited once to display the complete list.
+
+5. Undo Push
+Data Structure: Stack
+Time Complexity: O(1)
+Auxiliary Space: O(1) per push operation
+Explanation: A new undo action is added directly to the top of the stack.
+
+6. Undo Pop
+Data Structure: Stack
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+Explanation: The most recent undo action is removed directly from the top of the stack.
+
+
+REFLECTION
+
+1. Time Complexity of AddAtTheEnd
+
+When a tail pointer is used, it directly points to the last node of the linked list. The new node can be attached directly without traversing the list. Therefore, the time complexity is O(1).
+
+Without a tail pointer, the program must start at the head and traverse the list to find the last node. Therefore, the time complexity becomes O(n).
+
+2. Why a Stack Is Used for Undo Instead of a Queue
+
+A Stack follows the Last In, First Out (LIFO) principle. It reverses the most recently performed action first, which is the required behaviour for an Undo operation.
+
+A Queue follows the First In, First Out (FIFO) principle. It processes the oldest action first, so it is not suitable for undoing the most recent operation.
+
+3. Time Complexity of Removing a Node
+
+Removing a node takes O(n) time in the worst case because the program may need to traverse the linked list to find the target student and its previous node.
+
+Once the required node is found, updating the links and deleting the node take O(1) time. Therefore, the overall worst-case time complexity is O(n).
+
+4. Using a Binary Search Tree Instead of a Linked List
+
+A balanced Binary Search Tree (BST) can improve searching, insertion, and removal operations. These operations generally take O(log n) time in a balanced BST, compared with O(n) time for searching and removal in the singly linked list implementation.
+
+Displaying all student records still takes O(n) time because every record must be visited.
+
+If the BST becomes unbalanced, searching, insertion, and removal can take O(n) time in the worst case. Stack push and pop operations for undo remain O(1).
